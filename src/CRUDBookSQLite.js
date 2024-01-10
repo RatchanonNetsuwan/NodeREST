@@ -12,10 +12,10 @@ const app = express();
 const db = new sqlite3.Database('./Database/Book.sqlite');
 
 //parse incomming requests
-app.use(express.json());
+app.use(express.json())
 
 //parse books table if it doesn't exits
-db.run(`CREATE TABLE IF NOT EXISTS books(
+db.run(`CREATE TABLE IF NOT EXITS books(
     id INTEGER PRIMARY KEY,
     title TEXT,
     author TEXT
@@ -34,7 +34,7 @@ app.get ('/books' , (req , res) => {
 
 //route to get a book by id
 app.get('/books/:id' , (req , res) => {
-    db.get ('SELECT * FROM books WHERE id = ? ' , req.params.id , (err , row) => {
+    db.get ('SELECT * FROM WHERE id = ? ' , req.params.id , (err , rows) => {
         if(err){
             res.status(500).send(err);
         }else{
