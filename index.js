@@ -38,11 +38,11 @@ app.get('/books/:id' , (req , res) => {
         if(err){
             res.status(500).send(err);
         }else{
-            if(!row){
-                res.status(400).send('Book not found');
-            }else{
-                res.json(row);
-            }
+        if(!row){
+            res.status(400).send('Book not found');
+        }else{
+            res.json(row);
+        }
         }
     });
 });
